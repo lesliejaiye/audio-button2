@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Toggle</title>
+  <style>
+    .video-wrapper {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    #myVideo {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    #mtnBtn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border: none;
+      padding: 8px 14px;
+      color: rgba(255, 0, 0, 0.7); 
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 2;
+      line-height: 1;
+      white-space: nowrap;
+    };
+
+  </style>
+</head>
+<body>
+
+  <div class="video-wrapper">
+    <video id="myVideo" autoplay loop muted playsinline>
+      <source src="https://res.cloudinary.com/dhigle4nw/video/upload/v1747096287/thandie_video_s2cnjp.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="mtnBtn">unmute</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const video = document.getElementById('myVideo');
+      const muteBtn = document.getElementById('mtnBtn');
+
+      muteBtn.addEventListener('click', function () {
+        video.muted = !video.muted;
+        muteBtn.textContent = video.muted ? 'unmute' : 'mute';
+      });
+    });
+  </script>
+
+</body>
+</html>
